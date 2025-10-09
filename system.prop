@@ -1,0 +1,6 @@
+ro.display.series=Galaxy A16 5G
+ro.product.board=a16xm
+ro.board.platform=mt6835
+vendor.usb.use_ffs_mtp=1
+sys.usb.controller=11201000.usb0
+ro.boot.dynamic_partitions=true
