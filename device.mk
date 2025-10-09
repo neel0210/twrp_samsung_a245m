@@ -6,3 +6,6 @@
 #
 
 LOCAL_PATH := device/samsung/a16xm
+
+# Dynamic partitions support
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
