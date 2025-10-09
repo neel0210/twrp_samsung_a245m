@@ -18,7 +18,7 @@ $(call inherit-product, device/samsung/a16xm/device.mk)
 PRODUCT_DEVICE := a16xm
 PRODUCT_NAME := twrp_a16xm
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-A166P
+PRODUCT_MODEL := "Galaxy A16 5G"
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
