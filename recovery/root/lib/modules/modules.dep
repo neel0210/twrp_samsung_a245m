@@ -1,0 +1,225 @@
+usb_notify_layer.ko:
+mt6577_auxadc.ko:
+sec.ko:
+phy-mtk-tphy.ko:
+mtk-pmic-keys.ko:
+cache-parity.ko: mrdump.ko sec_debug.ko aee_aed.ko
+mtk-pmic-wrap.ko:
+mtk-smi.ko: aee_aed.ko
+device-apc-common.ko: aee_aed.ko
+aee_hangdet.ko: mrdump.ko sec_debug.ko
+i2c-mt65xx.ko: pinctrl-mtk-common-v2_debug.ko pinctrl-mtk-v2.ko
+mtk_battery_oc_throttling.ko:
+wt_secboot_fuse.ko:
+rpmb-mtk.ko: tzdev.ko ufs-mediatek-mod.ko rpmb.ko ufs-mediatek-dbg.ko blocktag.ko irq-dbg.ko sec_ext.ko bootprof.ko mrdump.ko sec_debug.ko aee_aed.ko
+leds-mtk.ko:
+rt5133-regulator.ko: extdev_io_class.ko
+mtu3.ko: tcpc_class.ko pd_dbg_info.ko
+mmqos-common.ko: mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko mtk-icc-core.ko mtk_dramc.ko vcp_status.ko mmprofile.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko mrdump.ko sec_debug.ko aee_aed.ko
+reset-ti-syscon.ko:
+spmi-mtk-pmif.ko: mrdump.ko sec_debug.ko aee_aed.ko
+pinctrl-mtk-v2.ko:
+vcp_status.ko:
+tcpc_rt1711h.ko: hardware_info.ko tcpc_class.ko pd_dbg_info.ko
+mtk_chg_type_det.ko: charger_class.ko tcpc_class.ko pd_dbg_info.ko
+mtk-scpsys-mt6835.ko: mtk-scpsys.ko
+clk-dbg-mt6835.ko: clk-common.ko aee_aed.ko
+mtk_iommu.ko: iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko iommu_secure.ko clk-common.ko aee_aed.ko
+mtk-socinfo.ko:
+clk-mt6835-imgsys1.ko: clk-common.ko aee_aed.ko
+mtk_pep20.ko: mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+mtk-mminfra-debug.ko: tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+upm6910.ko: nu2115.ko upm6720_charger.ko mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko hardware_info.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+monitor_hang.ko: mrdump.ko sec_debug.ko
+tzdev.ko:
+mtk-mmdvfs-v3.ko: mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko vcp_status.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+pwm-mtk-disp.ko:
+mtk-mmc-dbg.ko: blocktag.ko mrdump.ko sec_debug.ko
+mtk-scpsys-bringup.ko:
+uarthub_drv.ko: mtk_disp_notify.ko
+rtc-mt6685.ko: aee_aed.ko
+clk-mt6835-mfgcfg.ko: clk-common.ko aee_aed.ko
+mtk-dvfsrc-helper.ko: mtk_dramc.ko mtk-dvfsrc.ko mtk-scpsys.ko aee_aed.ko
+clk-mt6835-nemi_reg.ko: clk-common.ko aee_aed.ko
+sec_extra_info.ko: sec_ext.ko bootprof.ko sec_debug.ko
+panel-s6e8fc3-ams645fw01-fhdp-vdo-dsc-a15.ko: mtk_panel_ext.ko
+softdog.ko:
+clk-mt6835-cam.ko: clk-common.ko aee_aed.ko
+secchip.ko: i2c-mt65xx.ko pinctrl-mtk-common-v2_debug.ko pinctrl-mtk-v2.ko
+mtk_tinysys_ipi.ko: mtk_rpmsg_mbox.ko mtk-mbox.ko
+mtk_dynamic_loading_throttling.ko: mtk_low_battery_throttling.ko pmic_lvsys_notify.ko pmic_lbat_service.ko
+cx2560x.ko: nu2115.ko mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko hardware_info.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+mtk_dcm.ko:
+mt6315-regulator.ko:
+mt6835_dcm.ko: mtk_dcm.ko
+mtk-dvfsrc-regulator.ko: mtk-dvfsrc.ko mtk-scpsys.ko
+clkbuf.ko:
+mtk-mbox-mailbox.ko:
+mt6375-adc.ko:
+clk-mt6835-mmsys.ko: clk-common.ko aee_aed.ko
+spi_slave.ko:
+mediatek-drm-panel-drv.ko: mediatek-drm-gateic.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+clk-mt6835-peri.ko: clk-common.ko aee_aed.ko
+mtk-kpd.ko:
+pd-chk-mt6835.ko: clk-chk-mt6835.ko device-apc-common.ko clk-common.ko aee_aed.ko
+clk-mt6835-bus.ko: clk-common.ko aee_aed.ko
+sec_panel_notifier_v2.ko:
+pinctrl-mtk-common-v2_debug.ko: pinctrl-mtk-v2.ko
+mtk_panel_ext.ko:
+extcon-mtk-usb.ko: cx2560x.ko upm6910.ko nu2115.ko upm6720_charger.ko usb_notifier.ko usb_notify_layer.ko mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko hardware_info.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+pmic_lvsys_notify.ko:
+mmprofile.ko: aee_aed.ko
+mtk-spmi-pmic.ko: regmap-spmi.ko
+emi.ko: emi-mpu.ko aee_aed.ko
+reboot-mode.ko:
+mcd-panel.ko: sec_panel_notifier_v2.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+mtk-pm-domain-disable-unused.ko:
+mux_switch.ko:
+mtk-smi-dbg.ko: emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+mtk_slbc.ko:
+mt6375-battery.ko: pmic_lbat_service.ko mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko hardware_info.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko aee_aed.ko
+pd_dbg_info.ko:
+tinysys-scmi.ko:
+mtk_rpmsg_mbox.ko: mtk-mbox.ko
+rpmb.ko:
+blk-sec-stats.ko: blk-sec-common.ko sec_ext.ko bootprof.ko sec_debug.ko
+mtk-mcd-panel-adapter.ko: mcd-panel.ko sec_panel_notifier_v2.ko hf_manager.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+panel-s6e8fc3-ams645fw01-fhdp-vdo-dsc.ko: mtk_panel_ext.ko
+mtk-mbox.ko:
+mtk_pbm.ko: mtk_mdpm.ko mtk_dynamic_loading_throttling.ko mtk_low_battery_throttling.ko pmic_lvsys_notify.ko pmic_lbat_service.ko
+leds-mtk-disp.ko: rt4831a_drv.ko mediatek-drm-gateic.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+iommu_debug.ko: aee_aed.ko
+mtk_charger_framework.ko: sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+mcd-panel-s6e8fc3_a15.ko: usdm-panel-oled-common.ko mcd-panel.ko sec_panel_notifier_v2.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+mtk_wdt.ko:
+pidmap.ko:
+adapter_class.ko:
+sensors_class.ko:
+mtk-spmi-pmic-adc.ko:
+syscon-reboot-mode.ko: reboot-mode.ko
+sec_reboot.ko: mrdump.ko sec_debug.ko
+clk-mt6835-scp_iic.ko: clk-common.ko aee_aed.ko
+pmic_lbat_service.ko:
+powerhal_cpu_ctrl.ko:
+mtk_charger_algorithm_class.ko:
+mediatek-drm-gateic.ko: mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+aee_aed.ko:
+teeperf.ko:
+blk-sec-common.ko: sec_ext.ko bootprof.ko sec_debug.ko
+spi-mt65xx.ko:
+clk-chk-mt6835.ko: device-apc-common.ko clk-common.ko aee_aed.ko
+mtk-mmc-mod.ko: rpmb-mtk.ko tzdev.ko ufs-mediatek-mod.ko rpmb.ko ufs-mediatek-dbg.ko mtk-mmc-dbg.ko cqhci.ko blocktag.ko mtk-dvfsrc.ko irq-dbg.ko sec_ext.ko bootprof.ko mtk-scpsys.ko mrdump.ko sec_debug.ko aee_aed.ko
+mtk-uart-apdma.ko:
+mtk-cqdma.ko:
+extdev_io_class.ko:
+mtk_pep.ko: mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+xhci-mtk-hcd-v2.ko:
+fingerprint.ko: fingerprint_sysfs.ko
+nu2115.ko: charger_class.ko hardware_info.ko
+bus-parity.ko: mrdump.ko sec_debug.ko aee_aed.ko
+mtk-mminfra-imax.ko: mtk_slbc.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+clk-mt6835-vcodec.ko: clk-common.ko aee_aed.ko
+log_store.ko:
+timer-mediatek.ko:
+mt6375.ko:
+cmdq-platform-mt6835.ko: mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+mediatek-drm.ko: spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+charger_class.ko:
+usdm-panel-oled-common.ko: mcd-panel.ko sec_panel_notifier_v2.ko mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+sec_ext.ko: bootprof.ko sec_debug.ko
+wt_rp_value.ko:
+phy-mtk-ufs.ko:
+usb_f_ss_mon_gadget.ko: usb_notify_layer.ko
+usb_notifier.ko: usb_notify_layer.ko
+usb_f_conn_gadget.ko:
+tcpc_mt6375.ko: tcpc_class.ko pd_dbg_info.ko
+pinctrl-mt6835.ko: pinctrl-mtk-v2.ko
+regulator-vibrator.ko:
+mtk-icc-core.ko:
+clk-disable-unused.ko:
+ssg.ko: blk-sec-stats.ko blk-sec-common.ko sec_ext.ko bootprof.ko sec_debug.ko
+nvmem_mtk-devinfo.ko:
+leds-mtk-pwm.ko: mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+tcpc_class.ko: pd_dbg_info.ko
+wt_serial_num.ko:
+stk501xx.ko: sensors_class.ko hardware_info.ko
+mtk-dvfsrc.ko: mtk-scpsys.ko
+clk-common.ko: aee_aed.ko
+ufs-mediatek-mod.ko: rpmb.ko ufs-mediatek-dbg.ko blocktag.ko irq-dbg.ko sec_ext.ko bootprof.ko mrdump.ko sec_debug.ko aee_aed.ko
+mtk-scpsys.ko:
+ufs-mediatek-dbg.ko: mrdump.ko sec_debug.ko
+iommu_secure.ko:
+usb_meta.ko: bootprof.ko
+emi-mpu.ko: aee_aed.ko
+fingerprint_sysfs.ko:
+zsmalloc.ko:
+sec-rng.ko:
+clk-mt6835.ko: clk-common.ko aee_aed.ko
+mtk_pd_adapter.ko: adapter_class.ko tcpc_class.ko pd_dbg_info.ko
+mt6375-charger.ko: charger_class.ko
+mtk_printk_ctrl.ko:
+usb_f_dm.ko:
+clk-mt6835-adsp.ko: clk-common.ko aee_aed.ko
+cfg80211.ko:
+system_heap.ko:
+mtk_pep40.ko: mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+aee_rs.ko: mediatek-drm.ko spi_slave.ko mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko leds-mtk.ko mtk-mml.ko system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko mtk_panel_ext.ko mtk_dramc.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko mtk_disp_notify.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko hardware_info.ko mrdump.ko sec_debug.ko aee_aed.ko
+usb_boost.ko: mtu3.ko xhci-mtk-hcd-v2.ko mtk-dvfsrc.ko mtk-scpsys.ko tcpc_class.ko pd_dbg_info.ko
+mt6375-auxadc.ko:
+sec_reset.ko: mtk-pmic-keys.ko mrdump.ko sec_debug.ko
+irq-dbg.ko:
+mtk-dvfsrc-devfreq.ko: mtk-dvfsrc.ko mtk-scpsys.ko
+mtk_low_battery_throttling.ko: pmic_lvsys_notify.ko pmic_lbat_service.ko
+mt6377-regulator.ko:
+8250_mtk.ko: mtk-uart-apdma.ko uarthub_drv.ko mtk_disp_notify.ko
+rt4831a_drv.ko: leds-mtk.ko
+hardware_info.ko:
+mtk_disp_notify.ko:
+mmqos-mt6835.ko: mmqos-common.ko mtk-mmdvfs-debug.ko mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko mtk-icc-core.ko mtk_dramc.ko vcp_status.ko mmprofile.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko mrdump.ko sec_debug.ko aee_aed.ko
+rt_pd_manager.ko: tcpc_class.ko pd_dbg_info.ko
+mt6377-clkbuf.ko: clkbuf.ko
+mtk-cmdq-drv-ext.ko: device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+cqhci.ko: blocktag.ko mrdump.ko sec_debug.ko
+regmap-spmi.ko:
+dbgtop-drm.ko:
+clk-fmeter-mt6835.ko: clk-common.ko aee_aed.ko
+clk-mt6835-mdpsys.ko: clk-common.ko aee_aed.ko
+tcpci_late_sync.ko: tcpc_class.ko pd_dbg_info.ko
+mtk-mmdvfs.ko: mmprofile.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+mtk-mml.ko: system_heap.ko mtk_sync.ko mtk_slbc.ko mtk-icc-core.ko tinysys-scmi.ko mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+arm_dsu_pmu.ko:
+mtk_sync.ko:
+clk-bringup.ko:
+et5904.ko:
+mt6377-battery.ko: pmic_lbat_service.ko mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko hardware_info.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+mtk_pd_charging.ko: mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+spmi-mtk-mpu.ko:
+bootprof.ko:
+wt_em_status.ko:
+mtk_dramc.ko:
+clk-mt6835-sramrc_apb.ko: clk-common.ko aee_aed.ko
+mtk-swpm-perf-arm-pmu.ko:
+hf_manager.ko:
+mtk_pep50.ko: mtk_charger_framework.ko sec_ext.ko bootprof.ko rt_pd_manager.ko mtk_disp_notify.ko adapter_class.ko mtk_charger_algorithm_class.ko charger_class.ko tcpc_class.ko pd_dbg_info.ko sec_debug.ko
+mtk-emi.ko: mtk-dvfsrc.ko mtk-scpsys.ko
+mtk-mmdvfs-debug.ko: mtk-mmdvfs-v3.ko mtk-mmdvfs-ftrace.ko mtk_tinysys_ipi.ko mtk_rpmsg_mbox.ko mtk-mbox.ko mtk-mmdvfs.ko vcp_status.ko mmprofile.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko mrdump.ko sec_debug.ko aee_aed.ko
+mrdump.ko: sec_debug.ko
+iommu_test.ko:
+sec_debug.ko:
+clk-mt6835-img.ko: clk-common.ko aee_aed.ko
+ps5169.ko: mux_switch.ko
+upm6720_charger.ko: charger_class.ko hardware_info.ko
+blocktag.ko: mrdump.ko sec_debug.ko
+device-apc-mt6835.ko: device-apc-common.ko aee_aed.ko
+tcpc_upm7610.ko: hardware_info.ko tcpc_class.ko pd_dbg_info.ko
+mediatek-cpufreq-hw.ko:
+load_track.ko:
+hx9036.ko: sensors_class.ko hardware_info.ko
+zram.ko: zsmalloc.ko
+cmdq_helper_inf.ko: mtk-cmdq-drv-ext.ko device-apc-common.ko vcp_status.ko mmprofile.ko irq-dbg.ko iommu_debug.ko mtk-smi-dbg.ko emi.ko emi-mpu.ko mtk-smi.ko clk-common.ko aee_aed.ko
+fusb304.ko: mux_switch.ko
+uload_ind.ko: load_track.ko
+mac80211.ko: cfg80211.ko
+mtk-mmdvfs-ftrace.ko:
+mtk_mdpm.ko:
+sec_nfc.ko: hardware_info.ko
