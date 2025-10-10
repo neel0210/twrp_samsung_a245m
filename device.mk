@@ -13,4 +13,5 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
-    fastbootd
+    fastbootd \
+    android.hardware.health@2.0-service
