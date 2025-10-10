@@ -54,8 +54,8 @@ product                             /product          erofs         ro,barrier=1
 odm                                 /odm              erofs         ro,barrier=1,discard         wait,logical,first_stage_mount
 
 # Physical partitions
-/dev/block/by-name/metadata         /metadata         ext4          noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,first_stage_mount,formattable,check
-/dev/block/by-name/userdata         /data             f2fs          noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	wait,length=-16384,fscompress
+/dev/block/platform/soc/112b0000.ufshci/by-name/metadata         /metadata         ext4          noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,first_stage_mount,formattable,check
+/dev/block/platform/soc/112b0000.ufshci/by-name/userdata         /data             f2fs          noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	wait,length=-16384,fscompress
 
 # Add misc for GOTA
-/dev/block/by-name/misc             /misc             emmc          defaults                     recoveryonly
+/dev/block/platform/soc/112b0000.ufshci/by-name/misc             /misc             emmc          defaults                     recoveryonly
