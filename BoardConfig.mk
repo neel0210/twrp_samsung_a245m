@@ -118,6 +118,7 @@ TW_Y_OFFSET := 88
 TW_H_OFFSET := -84
 TW_INCLUDE_FASTBOOTD := true
 TW_MTP_DEVICE := "Galaxy A16 5G"
+TW_EXCLUDE_APEX := true 
 
 # Status Bar UI
 TW_STATUS_ICONS_ALIGN := center
