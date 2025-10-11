@@ -68,6 +68,9 @@ on boot
     chmod 0664 /sys/class/android_usb/android0/iSerial
     chown root system /sys/class/android_usb/android0/iSerial
 
+    # Start USB OTG switcher
+    start usb_otg_switcher
+
 # when sys.usb.config=adb, run this
 on property:sys.usb.config=adb
     start adbd
@@ -211,3 +214,9 @@ on property:sys.usb.config=none
 
     # Set the final state
     setprop sys.usb.state ${sys.usb.config}
+
+service usb_otg_switcher /vendor/bin/usb_otg_switcher
+    class main
+    user root
+    group root
+    seclabel u:r:recovery:s0
