@@ -56,4 +56,4 @@ odm		/odm		erofs						wait,logical,first_stage_mount
 
 # Removable storage
 /external_sd	vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="External SDCard";storage;wipeingui;removable
-/usb-otg	vfat		/dev/block/sdf1	/dev/block/sdf			flags=display="USB-OTG";storage;wipeingui;removable
+/usb-otg	vfat		/dev/block/sdd1	/dev/block/sdd			flags=display="USB-OTG";storage;wipeingui;removable
