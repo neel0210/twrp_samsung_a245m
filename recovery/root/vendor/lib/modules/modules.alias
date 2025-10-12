@@ -1,3 +1,15 @@
 # Aliases extracted from modules themselves.
-alias of:N*T*Cfocaltech,fts focaltech_tp
-alias of:N*T*Cfocaltech,ftsC* focaltech_tp
+alias of:N*T*Cgoodix,berlin goodix_ts_berlin
+alias of:N*T*Cgoodix,berlinC* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9897 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9897C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9966 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9966C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9916 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9916C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9885 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9885C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9886 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9886C* goodix_ts_berlin
+alias i2c:goodix_i2c goodix_ts_berlin
+alias platform:goodix_ts goodix_ts_berlin

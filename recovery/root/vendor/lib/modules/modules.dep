@@ -1,3 +1,2 @@
 tuihw-inf.ko:
-focaltech_tp.ko: tuihw-inf.ko sec_cmd.ko
-sec_cmd.ko:
+goodix_ts_berlin.ko: tuihw-inf.ko
