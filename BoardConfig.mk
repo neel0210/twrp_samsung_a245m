@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/samsung/a16xm
+DEVICE_PATH := device/samsung/a24
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -20,9 +20,9 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 
 # SoC
-TARGET_SOC := mt6835
+TARGET_SOC := mt6789
 BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := mt6835
+TARGET_BOARD_PLATFORM := mt6789
 # TARGET_BOARD_PLATFORM_GPU := mali-g57
 
 # Properties
@@ -35,7 +35,7 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := a16xm
+TARGET_BOOTLOADER_BOARD_NAME := a24
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
@@ -44,8 +44,8 @@ TARGET_SCREEN_DENSITY := 450
 
 # Kernel
 BOARD_KERNEL_BASE := 0x3fff8000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=a16xm
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPXE27A005
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=mt6789
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPVL01A010
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -72,10 +72,10 @@ TARGET_COPY_OUT_VENDOR := vendor
 TW_HAS_NO_MISC_PARTITION := true
 
 # Dynamic Partitions
-BOARD_SUPER_PARTITION_SIZE := 12582912000
+BOARD_SUPER_PARTITION_SIZE := 11744051200
 BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_PARTITION_LIST := system odm product system_ext vendor vendor_dlkm
-BOARD_MAIN_SIZE := 12000000000 # reduced from 12582912000 for overhead
+BOARD_MAIN_SIZE := 11000000000 # reduced from 11744051200 for overhead
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
@@ -117,7 +117,7 @@ TW_DEFAULT_BRIGHTNESS := 114
 TW_Y_OFFSET := 95
 TW_H_OFFSET := -84
 TW_INCLUDE_FASTBOOTD := true
-TW_MTP_DEVICE := "Galaxy A16 5G"
+TW_MTP_DEVICE := "Galaxy A24"
 TW_EXCLUDE_APEX := true 
 
 # Status Bar UI
@@ -130,7 +130,7 @@ TW_CUSTOM_BATTERY_POS := "820"
 TW_EXCLUDE_TWRPAPP := true
 TARGET_USES_MKE2FS := true
 TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/capacity
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone41/temp
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone0/temp
 TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_FB2PNG := true
 BOARD_RAMDISK_USE_LZ4 := true

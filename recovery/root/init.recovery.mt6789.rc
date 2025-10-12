@@ -2,16 +2,17 @@ import /init.recovery.project.rc
 
 on init
     setprop sys.usb.configfs 1
-    setprop sys.usb.controller "11201000.usb0"
+    setprop sys.usb.controller "musb-hdrc"
+    setprop sys.usb.ffs.aio_compat 0
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
     # set charging free due to it wait for USB activation
 
 on fs
-    wait /dev/block/platform/soc/112b0000.ufshci
-    symlink /dev/block/platform/soc/112b0000.ufshci /dev/block/bootdevice
-    symlink /dev/block/platform/soc/112b0000.ufshci/by-name /dev/block/by-name
+    wait /dev/block/platform/soc/11270000.ufshci
+    symlink /dev/block/platform/soc/11270000.ufshci /dev/block/bootdevice
+    symlink /dev/block/platform/soc/11270000.ufshci/by-name /dev/block/by-name
 
 on boot
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
