@@ -111,7 +111,7 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_DEVICE_VERSION := ravindu644
 TW_USE_SAMSUNG_JDM_HAPTICS := true
 TW_NO_REBOOT_BOOTLOADER := true
-TW_BRIGHTNESS_PATH := /sys/devices/platform/soc/soc:mtk_leds/leds/lcd-backlight/brightness
+TW_BRIGHTNESS_PATH := /sys/devices/platform/panel_drv_0/backlight/panel/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 114
 TW_Y_OFFSET := 95
@@ -129,7 +129,7 @@ TW_CUSTOM_BATTERY_POS := "820"
 # Additional properties
 TW_EXCLUDE_TWRPAPP := true
 TARGET_USES_MKE2FS := true
-TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/capacity
+TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/battery/capacity
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone0/temp
 TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_FB2PNG := true
