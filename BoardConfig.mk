@@ -14,10 +14,22 @@ ALLOW_MISSING_DEPENDENCIES := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := generic
 TARGET_IS_64_BIT := true
+TARGET_CPU_ABI2 := 
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a76
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 TARGET_USES_64_BIT_BINDER := true
-TARGET_SUPPORTS_64_BIT_APPS := true
+
+TARGET_CPU_SMP := true
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
 # SoC
 TARGET_SOC := mt6789
@@ -37,22 +49,24 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := a24
 TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 TARGET_USES_UEFI := true
 
 # Display
 TARGET_SCREEN_DENSITY := 450
 
 # Kernel
-BOARD_KERNEL_BASE := 0x3fff8000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=mt6789
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPVL01A010
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image
+
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_BASE := 0x3fff8000
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=mt6789
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPVL01A010
+BOARD_KERNEL_PAGESIZE := 4096
 
 # Kernel modules
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules) $(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
@@ -74,7 +88,7 @@ TW_HAS_NO_MISC_PARTITION := true
 # Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 11744051200
 BOARD_SUPER_PARTITION_GROUPS := main
-BOARD_MAIN_PARTITION_LIST := system odm product system_ext vendor vendor_dlkm
+BOARD_MAIN_PARTITION_LIST := system vendor product odm vendor_dlkm system_ext
 BOARD_MAIN_SIZE := 11000000000 # reduced from 11744051200 for overhead
 
 # Recovery
@@ -101,6 +115,7 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
 # TWRP Configuration
+TW_DEVICE_VERSION := KKRTxG99 / A24 4G
 TW_THEME := portrait_hdpi
 TW_FRAMERATE := 90
 TW_EXTRA_LANGUAGES := true
@@ -108,7 +123,6 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_HAS_DOWNLOAD_MODE := true
-TW_DEVICE_VERSION := KKRTxG99 / A24 4G
 TW_NO_HAPTICS := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/panel_drv_0/backlight/panel/brightness
@@ -122,8 +136,6 @@ TW_EXCLUDE_APEX := true
 
 # Status Bar UI
 TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "50"
-TW_CUSTOM_CLOCK_POS := "464"
 TW_CUSTOM_BATTERY_POS := "820"
 
 # Additional properties
@@ -138,3 +150,11 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_RESETPROP := true
 TW_NO_LEGACY_PROPS := true
+TW_NO_CPU_TEMP := true
+
+# Battery correct percentage
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity
+
+# Arrange Status bar
+TW_CUSTOM_CPU_POS := 290
+TW_CUSTOM_CLOCK_POS := 40
