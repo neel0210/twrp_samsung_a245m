@@ -64,7 +64,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_BASE := 0x3fff8000
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=mt6789
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=mt6789 firmware_class.path=/vendor/firmware,/vendor/firmware_mnt/image,/efs/wifi
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPVL01A010
 BOARD_KERNEL_PAGESIZE := 4096
 
