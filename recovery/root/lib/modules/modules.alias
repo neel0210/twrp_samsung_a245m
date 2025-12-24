@@ -176,8 +176,6 @@ alias of:N*T*Cmediatek,mt8173-disp-pwm pwm_mtk_disp
 alias of:N*T*Cmediatek,mt8173-disp-pwmC* pwm_mtk_disp
 alias of:N*T*Cmediatek,mt8183-disp-pwm pwm_mtk_disp
 alias of:N*T*Cmediatek,mt8183-disp-pwmC* pwm_mtk_disp
-alias of:N*T*Cmediatek,mt6768-disp-pwm pwm_mtk_disp
-alias of:N*T*Cmediatek,mt6768-disp-pwmC* pwm_mtk_disp
 alias of:N*T*Cmediatek,mt6357-dynamic_loading_throttling mtk_dynamic_loading_throttling
 alias of:N*T*Cmediatek,mt6357-dynamic_loading_throttlingC* mtk_dynamic_loading_throttling
 alias of:N*T*Cmediatek,mt6358-dynamic_loading_throttling mtk_dynamic_loading_throttling
@@ -870,3 +868,17 @@ alias of:N*T*Cmediatek,mt6855-mdpm mtk_mdpm
 alias of:N*T*Cmediatek,mt6855-mdpmC* mtk_mdpm
 alias of:N*T*Cmediatek,mt6789-mdpm mtk_mdpm
 alias of:N*T*Cmediatek,mt6789-mdpmC* mtk_mdpm
+alias of:N*T*Cgoodix,berlin goodix_ts_berlin
+alias of:N*T*Cgoodix,berlinC* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9897 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9897C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9966 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9966C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9916 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9916C* goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9885 goodix_ts_berlin
+alias of:N*T*Cgoodix,gt9885C* goodix_ts_berlin
+alias of:N*T*Cgoodix,ggt9886Ct9886 goodix_ts_berlin
+alias of:N*T*Cgoodix,* goodix_ts_berlin
+alias i2c:goodix_i2c goodix_ts_berlin
+alias platform:goodix_ts goodix_ts_berlin

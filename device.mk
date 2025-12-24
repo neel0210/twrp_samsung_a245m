@@ -1,17 +1,32 @@
-#
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
 LOCAL_PATH := device/samsung/a24
 
-# Dynamic partitions support
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
-# fastbootd
+# Health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service \
+    libhealthd.$(PRODUCT_PLATFORM) \
+    android.hardware.fastboot@1.0-impl-mock \
     fastbootd \
     android.hardware.health@2.0-service
+
+# EROFS Tools
+PRODUCT_HOST_PACKAGES_ENG += \
+    liberofs \
+    mkfs.erofs \
+    make_erofs \
+    dump.erofs \
+    fsck.erofs
+
+PRODUCT_PACKAGES += shrink bxhsed
+
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 31
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 32
+

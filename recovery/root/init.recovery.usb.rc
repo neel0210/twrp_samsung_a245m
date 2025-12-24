@@ -1,223 +1,70 @@
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+
 on fs
-    mkdir /config
     mount configfs none /config
-
-on post-fs
-    # USB Vendor ID for Samsung Electronics
-    setprop vendor.usb.vid "0x04E8"
-
-    # Creating the main gadget
-    mkdir /config/usb_gadget/g1 0770 shell shell    
-
-    # Setting it up
-    write /config/usb_gadget/g1/idVendor ${vendor.usb.vid}
-    write /config/usb_gadget/g1/bcdDevice 0x0223
-
-    # This is the USB 2.0 Standards
-    write /config/usb_gadget/g1/bcdUSB 0x0200
-
-    # 0x409 = English (United States)
+    mkdir /config/usb_gadget/g1 0770 shell shell
+    write /config/usb_gadget/g1/idVendor 0x18D1
     mkdir /config/usb_gadget/g1/strings/0x409 0770
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
-    write /config/usb_gadget/g1/strings/0x409/manufacturer "SAMSUNG"
-    write /config/usb_gadget/g1/strings/0x409/product "SAMSUNG_Android"
-
-    mkdir /config/usb_gadget/g1/configs/b.1
-    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409
-    write /config/usb_gadget/g1/configs/b.1/bmAttributes 0x80
-    write /config/usb_gadget/g1/configs/b.1/MaxPower 500    
-
-    # USB device class information
-    write /config/usb_gadget/g1/bDeviceClass 0x00
-    write /config/usb_gadget/g1/bDeviceSubClass 0x00  
-    write /config/usb_gadget/g1/bDeviceProtocol 0x00    
-
-    # Begin creating functions
-
-    # adb function
-    mkdir /config/usb_gadget/g1/functions/ffs.adb 0770 shell shell
+    write /config/usb_gadget/g1/strings/0x409/manufacturer ${ro.product.manufacturer}
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
+    mkdir /config/usb_gadget/g1/functions/ffs.adb
+    mkdir /config/usb_gadget/g1/functions/ffs.fastboot
+    mkdir /config/usb_gadget/g1/functions/ffs.mtp
+    mkdir /config/usb_gadget/g1/configs/b.1 0777 shell shell
+    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
     mkdir /dev/usb-ffs 0775 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb rmode=0770,fmode=0660,uid=2000,gid=2000,no_disconnect=1
-    mkdir /config/usb_gadget/g1/functions/ss_mon.etc
-
-    # fastboot function
-    mkdir /config/usb_gadget/g1/functions/ffs.fastboot
+    mkdir /dev/usb-ffs/mtp 0770 mtp mtp    
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     mkdir /dev/usb-ffs/fastboot 0770 system system
-    mount functionfs fastboot /dev/usb-ffs/fastboot rmode=0770,fmode=0660,uid=1000,gid=1000    
+    mount functionfs fastboot /dev/usb-ffs/fastboot rmode=0770,fmode=0660,uid=1000,gid=1000
+    mount functionfs mtp /dev/usb-ffs/mtp uid=2000,gid=2000
 
-    # mtp function
-    mkdir /config/usb_gadget/g1/functions/ffs.mtp
-    mkdir /config/usb_gadget/g1/functions/ss_mon.mtp
-    mkdir /dev/usb-ffs/mtp 0770 mtp mtp
-    write /config/usb_gadget/g1/functions/ffs.mtp/os_desc/interface.MTP/compatible_id "MTP"
-    mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
-
-on boot
-    # Enable USB gadget configfs
-    setprop sys.usb.configfs 2
-    
-    # Set USB controller device node
-    setprop sys.usb.controller "musb-hdrc"
-    setprop vendor.usb.controller "musb-hdrc"
-    setprop sys.usb.ffs.aio_compat 0
-
-    # MTP tuning
-    write /sys/class/android_usb/android0/f_mtp/cpu_mask 0x80
-    write /sys/module/usb_f_mtp/parameters/mtp_rx_cont 1
-    chmod 0664 /sys/class/android_usb/android0/iSerial
-    chown root system /sys/class/android_usb/android0/iSerial
-
-    # Start USB OTG switcher
-    # start usb_otg_switcher
-
-# when sys.usb.config=adb, run this
 on property:sys.usb.config=adb
     start adbd
 
-on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
-
-    setprop vendor.usb.state ${sys.usb.config}
-
-    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
-    write /config/usb_gadget/g1/idProduct 0x6860
-    write /config/usb_gadget/g1/idVendor 0x04e8
-    write /config/usb_gadget/g1/os_desc/use 1
-    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
-
-    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
-    write /config/usb_gadget/g1/UDC ""
-    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
-    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-    rm /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Enabling part
-    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/ffs.adb
-
-    # Syncing path
-    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
-
-    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
-    setprop sys.usb.state ${sys.usb.config}
-
-# Fastboot mode
-on property:sys.usb.config=fastboot
-    start fastbootd
-
-on property:sys.usb.ffs.ready=1 && property:sys.usb.config=fastboot
-
-    setprop vendor.usb.state ${sys.usb.config}
-
-    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "fastboot"
-    write /config/usb_gadget/g1/idProduct 0x6860
-    write /config/usb_gadget/g1/idVendor 0x04e8
-    write /config/usb_gadget/g1/os_desc/use 1
-    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
-
-    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
-    write /config/usb_gadget/g1/UDC ""
-    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
-    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-    rm /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Enabling part
-    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Syncing path
-    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
-
-    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
-    setprop sys.usb.state ${sys.usb.config}
-
-
-# MTP mode
-on property:sys.usb.config=mtp
-    setprop vendor.usb.state ${sys.usb.config}
-    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp"
-    write /config/usb_gadget/g1/idProduct 0x6860
-    write /config/usb_gadget/g1/idVendor 0x04E8
-    write /config/usb_gadget/g1/os_desc/use 1
-    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
-
-    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
-    write /config/usb_gadget/g1/UDC ""    
-    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
-    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-    rm /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Link functions: Original OEM
-    symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    symlink /config/usb_gadget/g1/functions/ss_mon.mtp /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    symlink /config/usb_gadget/g1/functions/ss_mon.etc /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-
-    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
-    write /config/usb_gadget/g1/UDC ${vendor.usb.controller}
-    setprop sys.usb.state ${sys.usb.config}
-
-# MTP + ADB mode
 on property:sys.usb.config=mtp,adb
     start adbd
 
-on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
-    setprop vendor.usb.state ${sys.usb.config}
-    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb_hid_storage"
-    write /config/usb_gadget/g1/idProduct 0x6860
-    write /config/usb_gadget/g1/idVendor 0x04E8
-    write /config/usb_gadget/g1/os_desc/use 1
-    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
+on property:sys.usb.config=fastboot
+    start fastbootd
 
-    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
-    write /config/usb_gadget/g1/UDC ""    
-    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
-    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-    rm /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Link functions: Original OEM
-    symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    symlink /config/usb_gadget/g1/functions/ss_mon.mtp /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/ffs.adb
-    symlink /config/usb_gadget/g1/functions/ss_mon.etc /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-
-    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
-    write /config/usb_gadget/g1/UDC ${vendor.usb.controller}
-    setprop sys.usb.state ${sys.usb.config}
-
-# Used to disable USB when switching states and to clean up all functions
 on property:sys.usb.config=none
-    # Stop services
+    write /config/usb_gadget/g1/UDC "none"
     stop adbd
     stop fastbootd
     setprop sys.usb.ffs.ready 0
-
-    # Unbind the USB controller to disable the gadget
-    write /config/usb_gadget/g1/UDC ""
-
-    # NUKE STEP: Centralized cleanup of all function symlinks
-    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
+    rm /config/usb_gadget/g1/configs/b.1/f1
     rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
-    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
-    rm /config/usb_gadget/g1/configs/b.1/ffs.fastboot
-
-    # Reset device class to unconfigured
-    write /config/usb_gadget/g1/bDeviceClass 0
-    write /config/usb_gadget/g1/bDeviceSubClass 0
-    write /config/usb_gadget/g1/bDeviceProtocol 0
-
-    # Set the final state
     setprop sys.usb.state ${sys.usb.config}
 
-service usb_otg_switcher /vendor/bin/usb_otg_switcher
-    class main
-    user root
-    group root
-    seclabel u:r:recovery:s0
-    disabled
+on property:sys.usb.config=sideload && property:sys.usb.ffs.ready=1
+    write /config/usb_gadget/g1/idProduct 0xD001
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=adb && property:sys.usb.ffs.ready=1
+    write /config/usb_gadget/g1/idProduct 0xD001
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb && property:sys.usb.ffs.ready=1
+    write /config/usb_gadget/g1/idProduct 0x6860
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp,adb"
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=fastboot && property:sys.usb.ffs.ready=1
+    write /config/usb_gadget/g1/idProduct 0xD001
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "fastboot"
+    symlink /config/usb_gadget/g1/functions/ffs.fastboot /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
